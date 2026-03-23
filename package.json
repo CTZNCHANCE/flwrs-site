@@ -1,0 +1,10 @@
+{
+  "name": "flwrs-site",
+  "version": "1.0.0",
+  "description": "FLWRS — Recognition, In Real Time. A cultural recognition platform by O.N.E The Duo.",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve public -l 3000",
+    "start": "npx serve public"
+  }
+}
