@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Submissions`,
+      `https://api.airtable.com/v0/app2MA69kxN7VDyNh/tblFDewlrlWQmPzTi`,
       {
         method: 'POST',
         headers: {
