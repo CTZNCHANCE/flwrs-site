@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLWRS — Get Involved</title>
+<meta name="description" content="Request Access to get involved with FLWRS as a sponsor, partner, or community member.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-left">
+    <div class="nav-logo"><a href="/" style="color: inherit; text-decoration: none;">FLWRS</a></div>
+    <ul class="nav-links">
+      <li><a href="/#hosts">Hosts</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#why">Why</a></li>
+      <li><a href="/#format">Format</a></li>
+      <li><a href="/#reach">Reach</a></li>
+      <li><a href="/#guests">Guests</a></li>
+      <li><a href="/#partners">Partners</a></li>
+      <li><a href="/get-involved.html">Get Involved</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="sound-toggle" id="soundToggle" aria-label="Toggle ambient audio">
+      <div class="audio-bars" id="audioBars">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span id="soundLabel">Sound</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero gi-hero" id="hero">
+  <div class="hero-bg">
+    <img src="/images/get-involved-hero.jpg" alt="FLWRS Installation" id="heroBgImg">
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Request Access</h1>
+    <p class="hero-tagline">Recognition, in real time.</p>
+    <div class="hero-line"></div>
+  </div>
+</section>
+
+<!-- QUESTIONNAIRE FORM -->
+<section class="get-involved-form-section">
+  <div class="form-container">
+    <div class="step-indicator">
+      <div class="step-dot active" data-step="1"></div>
+      <div class="step-line"></div>
+      <div class="step-dot" data-step="2"></div>
+      <div class="step-line"></div>
+      <div class="step-dot" data-step="3"></div>
+    </div>
+
+    <form id="flwrsForm">
+      
+      <!-- STEP 1: Involvement Type -->
+      <div class="form-step active" id="step1">
+        <h2 class="step-title">How would you like to get involved?</h2>
+        <p class="step-subtitle">Select all that apply.</p>
+        
+        <div class="options-grid">
+          <label class="option-card">
+            <input type="checkbox" name="involvement" value="Become a Sponsor">
+            <span class="option-content">Become a Sponsor</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="involvement" value="Partner on Activations">
+            <span class="option-content">Partner on Activations</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="involvement" value="Provide a Venue">
+            <span class="option-content">Provide a Venue</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="involvement" value="Host a Brunch">
+            <span class="option-content">Host a Brunch</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="involvement" value="Book for Radio or Podcast">
+            <span class="option-content">Book for Radio or Podcast</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="involvement" value="Nominate an Honoree">
+            <span class="option-content">Nominate an Honoree</span>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="involvement" value="Join the Community">
+            <span class="option-content">Join the Community</span>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-primary btn-next" data-next="2" disabled>Continue</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: About You -->
+      <div class="form-step" id="step2">
+        <h2 class="step-title">About You</h2>
+        
+        <div class="input-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="input-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="organization">Organization / Company</label>
+            <input type="text" id="organization" name="organization">
+          </div>
+          <div class="input-group">
+            <label for="title">Title / Role</label>
+            <input type="text" id="title" name="title">
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-actions split">
+          <button type="button" class="btn-text btn-prev" data-prev="1">Back</button>
+          <button type="button" class="btn-primary btn-next" data-next="3">Continue</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Tell Us More -->
+      <div class="form-step" id="step3">
+        <h2 class="step-title">Tell Us More</h2>
+        
+        <div class="input-group">
+          <label for="message" id="dynamicPrompt">Share anything else you'd like us to know.</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <div class="form-actions split">
+          <button type="button" class="btn-text btn-prev" data-prev="2">Back</button>
+          <button type="submit" class="btn-primary" id="submitBtn">Request Access</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS SCREEN -->
+      <div class="form-step success-screen" id="stepSuccess">
+        <div class="success-icon">🌸</div>
+        <h2 class="step-title">Your flowers are on the way.</h2>
+        <p class="step-subtitle">We'll be in touch shortly.</p>
+        <p class="success-tagline">Recognition, In Real Time.</p>
+        <div class="form-actions center">
+          <a href="/" class="btn-text">Return to Home</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT (Footer) -->
+<section class="contact" id="contact">
+  <div class="contact-floral">
+    <img src="/images/contact-florals.jpg" alt="Florals">
+  </div>
+  <div class="contact-body">
+    <h2 class="reveal vis">Contact</h2>
+    <div class="contact-rows">
+      <div class="c-row reveal vis">
+        <span class="lbl">Entity</span>
+        <span class="val">ONE Crossing Corp</span>
+      </div>
+      <div class="c-row reveal vis">
+        <span class="lbl">Phone</span>
+        <span class="val"><a href="tel:+19173924400">+1 917 392 4400</a></span>
+      </div>
+      <div class="c-row reveal vis">
+        <span class="lbl">Email</span>
+        <span class="val"><a href="mailto:onecrossingcorp@gmail.com">onecrossingcorp@gmail.com</a></span>
+      </div>
+    </div>
+    <div class="contact-footer reveal vis">
+      <div class="twe">TWE</div>
+    </div>
+  </div>
+</section>
+
+<script src="/js/main.js"></script>
+<script>
+// Logic specific to the Get Involved wizard
+document.addEventListener('DOMContentLoaded', () => {
+  const steps = document.querySelectorAll('.form-step');
+  const dots = document.querySelectorAll('.step-dot');
+  const nextBtns = document.querySelectorAll('.btn-next');
+  const prevBtns = document.querySelectorAll('.btn-prev');
+  const form = document.getElementById('flwrsForm');
+  const checkboxes = document.querySelectorAll('input[name="involvement"]');
+  const dynamicPrompt = document.getElementById('dynamicPrompt');
+  let selectedTypes = [];
+
+  // Update logic for Step 1 enable/disable based on selection
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const btn = document.querySelector('.btn-next[data-next="2"]');
+      const anyChecked = Array.from(checkboxes).some(c => c.checked);
+      btn.disabled = !anyChecked;
+      
+      // Update dynamic prompt
+      selectedTypes = Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
+      if (selectedTypes.includes('Become a Sponsor')) {
+        dynamicPrompt.textContent = "Tell us about your brand and what excites you about FLWRS.";
+      } else if (selectedTypes.includes('Nominate an Honoree')) {
+        dynamicPrompt.textContent = "Who would you give flowers to, and why?";
+      } else if (selectedTypes.includes('Join the Community')) {
+        dynamicPrompt.textContent = "What draws you to the FLWRS movement?";
+      } else {
+        dynamicPrompt.textContent = "Share anything else you'd like us to know.";
+      }
+    });
+  });
+
+  // Basic step navigation
+  const showStep = (stepIndex) => {
+    steps.forEach((s, i) => {
+      s.classList.remove('active');
+      if (i < dots.length) {
+        if (i < stepIndex) dots[i].classList.add('active'); // Past steps
+        else if (i === stepIndex - 1) dots[i].classList.add('active'); // Current step
+        else dots[i].classList.remove('active'); // Future steps
+      }
+    });
+    document.getElementById('step' + stepIndex).classList.add('active');
+  };
+
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // Basic validation for step 2
+      if(btn.dataset.next == "3") {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        if(!name || !email) {
+          alert("Please fill out name and email.");
+          return;
+        }
+      }
+      showStep(parseInt(btn.dataset.next));
+    });
+  });
+
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => showStep(parseInt(btn.dataset.prev)));
+  });
+
+  // Submit via API
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const payload = {
+      "Name": document.getElementById('name').value,
+      "Email": document.getElementById('email').value,
+      "Organization": document.getElementById('organization').value || "",
+      "Title": document.getElementById('title').value || "",
+      "Phone": document.getElementById('phone').value || "",
+      "Involvement Type": selectedTypes,
+      "Message": document.getElementById('message').value
+    };
+
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      if (res.ok) {
+        steps.forEach(s => s.classList.remove('active'));
+        document.getElementById('stepSuccess').classList.add('active');
+        document.querySelector('.step-indicator').style.display = 'none';
+      } else {
+        alert("Something went wrong. Please try again later.");
+        submitBtn.textContent = 'Request Access';
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      alert("Network error. Please try again later.");
+      submitBtn.textContent = 'Request Access';
+      submitBtn.disabled = false;
+    }
+  });
+
+});
+</script>
+</body>
+</html>
