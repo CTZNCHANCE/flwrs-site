@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLWRS — Beta Access</title>
+<meta name="description" content="FLWRS Beta Access — private decks, briefings, and partner materials. By invitation.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="FLWRS — Beta Access">
+<meta property="og:description" content="Recognition, in real time. By invitation.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-left">
+    <div class="nav-logo"><a href="/" style="color: inherit; text-decoration: none;">FLWRS</a></div>
+    <ul class="nav-links">
+      <li><a href="/#hosts">Hosts</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#why">Why</a></li>
+      <li><a href="/#format">Format</a></li>
+      <li><a href="/#reach">Reach</a></li>
+      <li><a href="/#guests">Guests</a></li>
+      <li><a href="/#partners">Partners</a></li>
+      <li><a href="/get-involved">Get Involved</a></li>
+      <li><a href="/beta" class="nav-beta active">Beta</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="sound-toggle" id="soundToggle" aria-label="Toggle ambient audio">
+      <div class="audio-bars" id="audioBars">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span id="soundLabel">Sound</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero gi-hero beta-hero" id="hero">
+  <div class="hero-bg">
+    <img src="/images/dark-flower-wide.jpg" alt="FLWRS Beta — Private Access" id="heroBgImg">
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <div class="beta-eyebrow">Private &middot; By Invitation</div>
+    <h1 class="hero-title">Beta Access</h1>
+    <p class="hero-tagline">Recognition, in real time.</p>
+    <div class="hero-line"></div>
+  </div>
+</section>
+
+<!-- GATE / RESOURCES -->
+<section class="beta-section" id="betaGate">
+  <div class="beta-container">
+
+    <!-- ACCESS CODE -->
+    <div class="beta-block" id="codeBlock">
+      <div class="eyebrow">For Team &amp; Partners</div>
+      <h2 class="beta-headline">Enter Your Access Code</h2>
+      <p class="beta-sub">Private decks, briefings, and partner materials live behind this door.</p>
+
+      <form id="codeForm" class="code-form" autocomplete="off">
+        <div class="code-row">
+          <input type="password" id="passcode" name="passcode" placeholder="Access Code" autocomplete="off" spellcheck="false" required>
+          <button type="submit" class="btn-primary" id="unlockBtn">Unlock</button>
+        </div>
+        <div class="code-error" id="codeError" role="alert"></div>
+      </form>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="beta-divider">
+      <span>Don&rsquo;t have access yet?</span>
+    </div>
+
+    <!-- APPLICATION -->
+    <div class="beta-block" id="applyBlock">
+      <div class="eyebrow">When the Platform Drops</div>
+      <h2 class="beta-headline">Apply for Access</h2>
+      <p class="beta-sub">FLWRS is an invitation-only space for the people building culture, the partners standing beside it, and the team holding the door. Tell us who you are.</p>
+
+      <form id="applyForm" class="apply-form" autocomplete="on">
+        <div class="input-group">
+          <label for="aName">Full Name *</label>
+          <input type="text" id="aName" name="name" required>
+        </div>
+        <div class="input-group">
+          <label for="aEmail">Email Address *</label>
+          <input type="email" id="aEmail" name="email" required>
+        </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="aOrg">Organization</label>
+            <input type="text" id="aOrg" name="organization">
+          </div>
+          <div class="input-group">
+            <label for="aTitle">Title / Role</label>
+            <input type="text" id="aTitle" name="title">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="aPhone">Phone</label>
+          <input type="tel" id="aPhone" name="phone">
+        </div>
+        <div class="input-group">
+          <label for="aMessage">How are you connected to FLWRS? *</label>
+          <textarea id="aMessage" name="message" rows="4" required placeholder="Partner, collaborator, press, community — tell us what brings you here."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="applyBtn">Request Beta Access</button>
+        </div>
+        <div class="apply-status" id="applyStatus" role="status"></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- UNLOCKED RESOURCES (hidden until valid code) -->
+<section class="beta-section beta-library" id="libraryView" hidden>
+  <div class="beta-container">
+    <div class="library-head">
+      <div class="eyebrow">Unlocked</div>
+      <h2 class="beta-headline">Private Library</h2>
+      <p class="beta-sub">Materials below are confidential. Do not share without permission from O.N.E The Duo / TWE.</p>
+      <button type="button" class="btn-text" id="lockBtn">Lock again</button>
+    </div>
+    <div class="library-grid" id="libraryGrid"></div>
+  </div>
+</section>
+
+<!-- SUCCESS (after application) -->
+<section class="beta-section beta-success" id="applySuccess" hidden>
+  <div class="beta-container success-screen">
+    <div class="success-icon">🌸</div>
+    <h2 class="step-title">Your application is in.</h2>
+    <p class="step-subtitle">We&rsquo;ll reach out when the door opens.</p>
+    <p class="success-tagline">Recognition, In Real Time.</p>
+    <div class="form-actions center">
+      <a href="/" class="btn-text">Return to Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-floral">
+    <img src="/images/contact-florals.jpg" alt="Florals">
+  </div>
+  <div class="contact-body">
+    <h2 class="reveal vis">Contact</h2>
+    <div class="contact-rows">
+      <div class="c-row reveal vis">
+        <span class="lbl">Entity</span>
+        <span class="val">ONE Crossing Corp</span>
+      </div>
+      <div class="c-row reveal vis">
+        <span class="lbl">Phone</span>
+        <span class="val"><a href="tel:+19173924400">+1 917 392 4400</a></span>
+      </div>
+      <div class="c-row reveal vis">
+        <span class="lbl">Email</span>
+        <span class="val"><a href="mailto:onecrossingcorp@gmail.com">onecrossingcorp@gmail.com</a></span>
+      </div>
+    </div>
+    <div class="contact-footer reveal vis">
+      <div class="twe">TWE</div>
+    </div>
+  </div>
+</section>
+
+<script src="/js/main.js"></script>
+<script>
+(function () {
+  const codeForm = document.getElementById('codeForm');
+  const applyForm = document.getElementById('applyForm');
+  const codeError = document.getElementById('codeError');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const passcode = document.getElementById('passcode');
+  const gateView = document.getElementById('betaGate');
+  const libraryView = document.getElementById('libraryView');
+  const libraryGrid = document.getElementById('libraryGrid');
+  const lockBtn = document.getElementById('lockBtn');
+  const applyBtn = document.getElementById('applyBtn');
+  const applyStatus = document.getElementById('applyStatus');
+  const applySuccess = document.getElementById('applySuccess');
+
+  const STORAGE_KEY = 'flwrsBetaResources';
+
+  function renderResources(resources) {
+    libraryGrid.innerHTML = '';
+    resources.forEach(group => {
+      const col = document.createElement('div');
+      col.className = 'library-col';
+      const heading = document.createElement('div');
+      heading.className = 'library-cat';
+      heading.textContent = group.category;
+      col.appendChild(heading);
+      group.items.forEach(item => {
+        const a = document.createElement('a');
+        a.className = 'library-item';
+        a.href = item.url || '#';
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.innerHTML = '<div class="library-title">' + item.title + '</div>' +
+          (item.context ? '<div class="library-context">' + item.context + '</div>' : '');
+        col.appendChild(a);
+      });
+      libraryGrid.appendChild(col);
+    });
+  }
+
+  function showLibrary(resources) {
+    gateView.hidden = true;
+    applySuccess.hidden = true;
+    libraryView.hidden = false;
+    renderResources(resources);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showGate() {
+    libraryView.hidden = true;
+    applySuccess.hidden = true;
+    gateView.hidden = false;
+  }
+
+  // Restore session
+  try {
+    const cached = sessionStorage.getItem(STORAGE_KEY);
+    if (cached) showLibrary(JSON.parse(cached));
+  } catch (e) {}
+
+  codeForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    codeError.textContent = '';
+    unlockBtn.disabled = true;
+    unlockBtn.textContent = 'Unlocking…';
+    try {
+      const res = await fetch('/api/beta-auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ passcode: passcode.value })
+      });
+      const data = await res.json();
+      if (res.ok && data.ok) {
+        try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data.resources)); } catch (e) {}
+        showLibrary(data.resources);
+      } else {
+        codeError.textContent = data.error || 'That code didn’t work.';
+      }
+    } catch (err) {
+      codeError.textContent = 'Network error. Try again.';
+    } finally {
+      unlockBtn.disabled = false;
+      unlockBtn.textContent = 'Unlock';
+      passcode.value = '';
+    }
+  });
+
+  lockBtn.addEventListener('click', () => {
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    showGate();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  applyForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    applyStatus.textContent = '';
+    applyBtn.disabled = true;
+    applyBtn.textContent = 'Sending…';
+
+    const payload = {
+      "Name": document.getElementById('aName').value,
+      "Email": document.getElementById('aEmail').value,
+      "Organization": document.getElementById('aOrg').value || "",
+      "Title": document.getElementById('aTitle').value || "",
+      "Phone": document.getElementById('aPhone').value || "",
+      "Involvement Type": ["Beta Access"],
+      "Message": document.getElementById('aMessage').value
+    };
+
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        gateView.hidden = true;
+        libraryView.hidden = true;
+        applySuccess.hidden = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        applyStatus.textContent = 'Something went wrong. Please try again.';
+        applyBtn.disabled = false;
+        applyBtn.textContent = 'Request Beta Access';
+      }
+    } catch (err) {
+      applyStatus.textContent = 'Network error. Please try again.';
+      applyBtn.disabled = false;
+      applyBtn.textContent = 'Request Beta Access';
+    }
+  });
+})();
+</script>
+</body>
+</html>
