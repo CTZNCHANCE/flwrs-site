@@ -5,22 +5,36 @@ const RESOURCES = [
   {
     category: 'Decks',
     items: [
-      { title: 'FLWRS — Segment Pitch', context: 'Master pitch deck. Recognition, in real time.', url: '#' },
-      { title: 'SCU × O.N.E The Duo FLWRS — Powered by Jordan', context: 'Cultural activation brief.', url: '#' },
-      { title: 'Larry & Jeff — Briefing Deck', context: 'Friend-conversation deck. No Mexico City ask.', url: '#' }
+      {
+        title: 'FLWRS — Segment Pitch',
+        context: 'The master pitch. Recognition, in real time.',
+        url: 'https://drive.google.com/file/d/1vyROAyGybSK1njXphvllU77O6JO4UiYy/view?usp=drivesdk'
+      },
+      {
+        title: 'O.N.E The Duo — ONE 4 ALL Pitch Deck',
+        context: 'Tekitha & Prana Supreme. Nashville. Mother & daughter. Country Americana.',
+        url: 'https://drive.google.com/file/d/1af707aZoVGW016bRpj3dC7CVDvsF2Pzp/view?usp=drivesdk'
+      }
     ]
   },
   {
     category: 'Briefings',
     items: [
-      { title: 'Mexico City — May 2026', context: 'Immediate activation brief.', url: '#' },
-      { title: 'Generational Greatness — Jordan 2026', context: 'Slot context for FLWRS.', url: '#' }
+      {
+        title: 'O.N.E The Duo × Jordan — Internal Brief',
+        context: 'Partnership thesis and activation framing.',
+        url: 'https://drive.google.com/file/d/1rFlFtEzVZI5-svwzhnJD1PGcovhyp87n/view?usp=drivesdk'
+      }
     ]
   },
   {
-    category: 'Press & One-Sheets',
+    category: 'Dashboards & References',
     items: [
-      { title: 'FLWRS One-Pager', context: 'Single-page partner overview.', url: '#' }
+      {
+        title: 'Jordan — Programs Comparison Dashboard',
+        context: 'Four programs, one comparison. PDF companion to the live dashboard.',
+        url: 'https://drive.google.com/file/d/1BXJ9aXlgMTfwzZhF4NA5EmrYcfC-89ro/view?usp=drivesdk'
+      }
     ]
   }
 ];
