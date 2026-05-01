@@ -993,63 +993,27 @@ nav.scrolled {
 .nav-links a.nav-beta:hover { color: var(--text-primary); }
 .nav-links a.nav-beta.active { color: var(--text-primary); }
 
-.beta-hero { min-height: 50vh; }
 .beta-hero .hero-bg img {
   opacity: 0.30;
   filter: brightness(0.35) saturate(0.55);
 }
-.beta-hero .hero-title {
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-}
-.beta-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--mauve);
-  margin-bottom: 18px;
-  opacity: 0;
-  animation: tagReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
-}
 
-.beta-section {
-  background: var(--warm-black);
-  padding: 90px 40px 110px;
-}
-.beta-container {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-}
+/* Beta page reuses .get-involved-form-section (padding/background) and
+   .form-container (700px). Each block sits in the same column the
+   wizard uses, with the same step-title / step-subtitle rhythm. */
+.beta-block { margin-bottom: 56px; }
+.beta-block:last-child { margin-bottom: 0; }
+.beta-block .step-subtitle { margin-bottom: 32px; }
 
-.beta-block { padding: 8px 0; }
-.beta-block .eyebrow {
-  font-family: 'DM Sans', sans-serif; font-weight: 700;
-  font-size: 0.65rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--mauve);
-  margin-bottom: 16px;
-}
-.beta-headline {
-  font-family: 'Playfair Display', serif; font-weight: 800;
-  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-  letter-spacing: 0.03em; line-height: 1.15;
-  color: var(--text-primary); margin-bottom: 14px;
-}
-.beta-sub {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.82rem; line-height: 1.7;
-  color: var(--text-secondary);
-  max-width: 560px;
-  margin-bottom: 32px;
-}
-
-/* Access code */
+/* Access-code input row */
 .code-form { margin-top: 8px; }
 .code-row {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 12px;
   align-items: stretch;
+  max-width: 480px;
+  margin: 0 auto;
 }
 .code-row input[type="password"] {
   background: rgba(10, 10, 10, 0.5);
@@ -1060,6 +1024,7 @@ nav.scrolled {
   font-size: 1.05rem;
   letter-spacing: 0.25em;
   color: var(--text-primary);
+  text-align: center;
   transition: border-color 0.3s, background 0.3s;
 }
 .code-row input[type="password"]::placeholder {
@@ -1080,11 +1045,12 @@ nav.scrolled {
   letter-spacing: 0.08em;
   color: #D89AA1;
   min-height: 1.2em;
+  text-align: center;
 }
 
-/* Divider */
+/* "Don't have access yet?" divider between blocks */
 .beta-divider {
-  margin: 64px 0 56px;
+  margin: 56px 0 48px;
   position: relative;
   text-align: center;
 }
@@ -1121,19 +1087,27 @@ nav.scrolled {
   text-align: right;
 }
 
-/* Library (unlocked) */
-.beta-library { padding: 90px 40px 110px; }
-.library-head { text-align: left; margin-bottom: 48px; position: relative; }
-.library-head .btn-text {
-  position: absolute;
-  top: 4px;
-  right: 0;
-  padding: 4px 0;
+/* Library (unlocked) — centered head matches the .guests-head pattern */
+.library-container {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.library-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.library-head .eyebrow {
+  font-family: 'DM Sans', sans-serif; font-weight: 700;
+  font-size: 0.65rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--mauve);
+  margin-bottom: 14px;
 }
 .library-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
+  margin-bottom: 48px;
 }
 .library-col {
   border-top: 1px solid var(--divider);
@@ -1172,15 +1146,7 @@ nav.scrolled {
   color: var(--text-dim); line-height: 1.5;
 }
 
-.beta-success { padding: 110px 40px; }
-
 @media (max-width: 600px) {
   .code-row { grid-template-columns: 1fr; }
   .code-row .btn-primary { width: 100%; }
-  .beta-section, .beta-library, .beta-success { padding: 70px 24px 80px; }
-  .library-head .btn-text {
-    position: static;
-    display: inline-block;
-    margin-top: 12px;
-  }
 }

@@ -50,7 +50,6 @@
   </div>
   <div class="hero-vignette"></div>
   <div class="hero-content">
-    <div class="beta-eyebrow">Private &middot; By Invitation</div>
     <h1 class="hero-title">Beta Access</h1>
     <p class="hero-tagline">Recognition, in real time.</p>
     <div class="hero-line"></div>
@@ -58,14 +57,13 @@
 </section>
 
 <!-- GATE / RESOURCES -->
-<section class="beta-section" id="betaGate">
-  <div class="beta-container">
+<section class="get-involved-form-section" id="betaGate">
+  <div class="form-container">
 
     <!-- ACCESS CODE -->
     <div class="beta-block" id="codeBlock">
-      <div class="eyebrow">For Team &amp; Partners</div>
-      <h2 class="beta-headline">Enter Your Access Code</h2>
-      <p class="beta-sub">Private decks, briefings, and partner materials live behind this door.</p>
+      <h2 class="step-title">Enter Your Access Code</h2>
+      <p class="step-subtitle">For team &amp; partners. Private decks, briefings, and partner materials live behind this door.</p>
 
       <form id="codeForm" class="code-form" autocomplete="off">
         <div class="code-row">
@@ -83,9 +81,8 @@
 
     <!-- APPLICATION -->
     <div class="beta-block" id="applyBlock">
-      <div class="eyebrow">When the Platform Drops</div>
-      <h2 class="beta-headline">Apply for Access</h2>
-      <p class="beta-sub">FLWRS is an invitation-only space for the people building culture, the partners standing beside it, and the team holding the door. Tell us who you are.</p>
+      <h2 class="step-title">Apply for Access</h2>
+      <p class="step-subtitle">FLWRS is an invitation-only space for the people building culture, the partners standing beside it, and the team holding the door. Tell us who you are.</p>
 
       <form id="applyForm" class="apply-form" autocomplete="on">
         <div class="input-group">
@@ -125,21 +122,23 @@
 </section>
 
 <!-- UNLOCKED RESOURCES (hidden until valid code) -->
-<section class="beta-section beta-library" id="libraryView" hidden>
-  <div class="beta-container">
+<section class="get-involved-form-section beta-library" id="libraryView" hidden>
+  <div class="library-container">
     <div class="library-head">
       <div class="eyebrow">Unlocked</div>
-      <h2 class="beta-headline">Private Library</h2>
-      <p class="beta-sub">Materials below are confidential. Do not share without permission from O.N.E The Duo / TWE.</p>
-      <button type="button" class="btn-text" id="lockBtn">Lock again</button>
+      <h2 class="step-title">Private Library</h2>
+      <p class="step-subtitle">Materials below are confidential. Do not share without permission from O.N.E The Duo / TWE.</p>
     </div>
     <div class="library-grid" id="libraryGrid"></div>
+    <div class="form-actions center">
+      <button type="button" class="btn-text" id="lockBtn">Lock again</button>
+    </div>
   </div>
 </section>
 
 <!-- SUCCESS (after application) -->
-<section class="beta-section beta-success" id="applySuccess" hidden>
-  <div class="beta-container success-screen">
+<section class="get-involved-form-section beta-success" id="applySuccess" hidden>
+  <div class="form-container success-screen">
     <div class="success-icon">🌸</div>
     <h2 class="step-title">Your application is in.</h2>
     <p class="step-subtitle">We&rsquo;ll reach out when the door opens.</p>
