@@ -7,7 +7,11 @@
 <meta name="description" content="The world-famous recognition night from Sway &amp; King Tech. 2026 brand partnership prospectus.">
 <meta property="og:title" content="For The Culture 3 — Brand Partnership">
 <meta property="og:description" content="Recognition, in real time. Saturday 22 August 2026 · Los Angeles.">
-<meta property="og:image" content="/images/ftc/wordmark.png">
+<!-- PNG, not the SVG: most link-preview crawlers won't render SVG og:images. -->
+<meta property="og:image" content="/images/ftc/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A0A0B">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -52,13 +56,26 @@
 }
 :root[data-theme="paper"]{                /* Paper · light ground, for print & procurement */
   --ink:#F4F2ED; --ink2:#E9E6DF; --panel:#FFFFFF;
-  --accent:#BF261C; --accent-dk:#8C1912; --accent-rgb:191,38,28;
-  --bone:#141310; --dim:#3D3931; --mute:#6D6658;
-  --line:rgba(191,38,28,.32); --line2:rgba(20,19,16,.14);
-  --on-accent:#fff; --dot-off:#BCB6A9;
+  --accent:#B01F16; --accent-dk:#7C150F; --accent-rgb:176,31,22;
+  --bone:#0E0D0A; --dim:#26231D; --mute:#4B4539;
+  --line:rgba(176,31,22,.34); --line2:rgba(14,13,10,.16);
+  --on-accent:#fff; --dot-off:#AFA89A;
   --card-shadow:0 12px 30px rgba(60,52,38,.14);
   --img-shadow:0 12px 30px rgba(60,52,38,.22);
 }
+/* Light ground needs more than inverted tokens: 300-weight type that reads fine
+   as light-on-dark goes thin and grey as dark-on-light at the same ratio. Bump
+   the body weights and firm up the hairline rules so Paper stays legible. */
+:root[data-theme="paper"] .lede,
+:root[data-theme="paper"] .body,
+:root[data-theme="paper"] .sm,
+:root[data-theme="paper"] .xs,
+:root[data-theme="paper"] .mx td{font-weight:400}
+:root[data-theme="paper"] .pstd,
+:root[data-theme="paper"] .statl,
+:root[data-theme="paper"] .eyebrow{color:var(--mute)}
+:root[data-theme="paper"] .card{border-color:rgba(14,13,10,.13)}
+:root[data-theme="paper"] .badge.off{color:var(--dim);border-color:rgba(14,13,10,.22)}
 /* legacy aliases — resolved lazily, so they follow whichever theme is active */
 :root{ --red:var(--accent); --red-dk:var(--accent-dk); }
 
@@ -256,8 +273,10 @@ a{color:inherit}
     <span class="eyebrow">Executive Vision &amp; Cultural Relevance</span></div>
   <div class="grid" style="grid-template-columns:minmax(280px,1fr) minmax(300px,1.08fr);align-items:center;gap:clamp(20px,3vw,48px)">
     <div class="rv-in">
-      <img src="/images/ftc/wordmark.png" alt="World Famous For The Culture 3"
-        style="width:100%;max-width:620px;border-radius:3px;filter:drop-shadow(0 16px 46px rgba(0,0,0,.8))">
+      <!-- Vector, traced from the original cover art. The old PNG was a bad crop:
+           the "3" was clipped and two black rectangles were baked into the corners. -->
+      <img src="/images/ftc/wordmark.svg" alt="World Famous For The Culture 3"
+        style="width:100%;max-width:640px;filter:drop-shadow(var(--img-shadow))">
       <div class="kick" style="margin-top:26px"></div>
       <p class="lede">The world-famous recognition night from Sway &amp; King Tech — where the builders
         of the culture are honored while they can still hear it, and a grant goes home in their name.</p>
@@ -299,6 +318,9 @@ a{color:inherit}
         <div class="card"><div class="stat" data-n="1.75" data-suf="M" data-dec="2">0</div><div class="statl">Monthly pageviews</div></div>
         <div class="card"><div class="stat">1:39</div><div class="statl">Avg session</div></div>
       </div>
+      <div class="lab" style="margin:22px 0 11px">Where the network already carries</div>
+      <img src="/images/ftc/platforms.png" alt="SKT Network carriage: Apple TV, Fire TV, Roku, Android TV, VIZIO"
+        style="width:100%;border:1px solid var(--line2);border-radius:3px;display:block">
       <div class="lab" style="margin:22px 0 12px">Social footprint</div>
       <div class="grid g4">
         <div class="card" style="padding:15px"><div class="stat" style="font-size:clamp(22px,2.4vw,38px)" data-n="589" data-suf="K">0</div><div class="statl">X</div></div>
@@ -355,15 +377,11 @@ a{color:inherit}
   <div class="rv-in" style="margin-top:clamp(16px,2.4vh,26px)">
     <div class="lab" style="margin-bottom:11px">Past brand partners across SKT Network programming</div>
     <div class="card">
-      <div style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline">
-        <span class="disp d5" style="color:var(--dim)">Doritos</span><span class="disp d5" style="color:var(--dim)">McDonald's</span>
-        <span class="disp d5" style="color:var(--dim)">Diageo</span><span class="disp d5" style="color:var(--dim)">A&amp;E</span>
-        <span class="disp d5" style="color:var(--dim)">BET</span><span class="disp d5" style="color:var(--dim)">Cheez-It</span>
-        <span class="disp d5" style="color:var(--dim)">Golden State Warriors</span><span class="disp d5" style="color:var(--dim)">LRG</span>
-        <span class="disp d5" style="color:var(--dim)">TuneCore</span><span class="disp d5" style="color:var(--dim)">Fearless Fund</span>
-        <span class="disp d5" style="color:var(--dim)">9FIVE</span><span class="disp d5" style="color:var(--dim)">Crep Protect</span>
-      </div>
-      <p class="xs" style="margin-top:11px">Named for reference only. Past partnerships across SKT Network programming; no current endorsement implied.</p>
+      <!-- Marks sit on their own light plate so the wall reads as a credentials
+           sheet in every palette, rather than inverting with the theme. -->
+      <img src="/images/ftc/brandwall.png" alt="Brands SKT Network has worked with: Cheez-It, LRG, A&amp;E, BET, Doritos, LANDR, TuneCore, Fearless Fund, New Wave Soda, GYM, McDonald's, Golden State Warriors, 9FIVE, Crep Protect, Diageo"
+        style="width:100%;max-width:760px;margin:0 auto;display:block;background:#fff;border-radius:2px;padding:8px">
+      <p class="xs" style="margin-top:11px">Shown for reference only. Past partnerships across SKT Network programming; no current endorsement implied.</p>
     </div>
   </div>
   <div class="ftr"><span class="eyebrow">Activations finalized in a working session with your team</span><span class="eyebrow">03</span></div>
@@ -504,12 +522,12 @@ a{color:inherit}
   <div class="hdr rv-in"><span class="eyebrow red">The Ask</span><span class="eyebrow">Partnership inquiries</span></div>
   <div class="grid" style="grid-template-columns:minmax(280px,1.25fr) minmax(280px,.85fr);gap:clamp(20px,3vw,46px);align-items:center">
     <div class="rv-in">
-      <img src="/images/ftc/badge.png" alt="" style="width:78px;margin-bottom:24px;opacity:.95">
-      <div class="kick"></div>
-      <h1 class="disp" style="margin-bottom:24px">Be the reason<br>somebody got their<br><span class="red">flowers on time.</span></h1>
+      <img src="/images/ftc/badge.png" alt="" style="width:72px;margin-bottom:16px;opacity:.95">
+      <div class="kick" style="margin-bottom:16px"></div>
+      <h1 class="disp" style="margin-bottom:18px;font-size:clamp(40px,6.6vw,86px)">Be the reason<br>somebody got their<br><span class="red">flowers on time.</span></h1>
       <p class="lede" style="max-width:46ch">Bring us your category thesis and we will build the activation around it — then hold your exclusivity while your legal and comms teams complete review.</p>
       <p class="sm" style="max-width:52ch;margin-top:14px">Structures are negotiable in both directions. We are open to bespoke arrangements that are strategic as well as financial — media value, distribution, product, co-marketing, or multi-year. If the ladder does not fit your budget line, tell us the shape that does.</p>
-      <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
         <a class="cta" href="mailto:info@sktnetwork.tv?subject=For%20The%20Culture%203%20—%20Partnership%20Inquiry">Email the team</a>
         <a class="cta ghost" href="tel:+18184810066">818 481 0066</a>
       </div>
@@ -529,7 +547,7 @@ a{color:inherit}
         <div class="row"><span class="body">The FLWRS Brunch</span><span class="sm">Tentative · underwriter-activated</span></div>
         <div class="row"><span class="body">Founding Rate closes</span><span class="sm red">1 March 2027</span></div>
       </div>
-      <img src="/images/ftc/talent.png" alt="" style="width:100%;margin-top:20px;border-radius:3px;opacity:.92">
+      <img src="/images/ftc/talent.png" alt="" style="width:100%;max-height:150px;object-fit:cover;object-position:center 30%;margin-top:18px;border-radius:3px;opacity:.92">
     </div>
   </div>
   <div class="ftr"><span class="eyebrow">SKT Network · Sway's Universe · FLWRS · O.N.E The Duo · TWE</span><span class="eyebrow">06</span></div>
