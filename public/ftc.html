@@ -137,6 +137,12 @@ h2.disp{font-size:clamp(34px,5.4vw,72px)}
 .cnum{font-family:'Haettenschweiler','Impact',sans-serif;font-size:clamp(22px,2vw,30px);color:var(--red-dk);line-height:1;margin-bottom:9px}
 .grid{display:grid;gap:clamp(10px,1vw,16px)}
 .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+/* The section-level two-column splits take their ratio from a --split custom
+   property set inline, rather than setting grid-template-columns inline. An
+   inline grid-template-columns outranks every media query, which is what used
+   to push the right-hand column off-screen on phones; this way the mobile rule
+   below can collapse them to one column without !important. */
+.split{grid-template-columns:var(--split,1fr)}
 
 /* ── stats ── */
 .stat{font-family:'Haettenschweiler','Impact',sans-serif;font-size:clamp(30px,4vw,60px);line-height:.88;color:var(--red)}
@@ -163,6 +169,8 @@ h2.disp{font-size:clamp(34px,5.4vw,72px)}
 
 /* ── matrix ── */
 .mxw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.swipe{display:none;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);font-weight:700;margin-top:9px}
 .mx{width:100%;border-collapse:collapse;min-width:760px}
 .mx th{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);text-align:left;
   font-weight:700;padding:0 10px 9px 0;border-bottom:2px solid var(--red)}
@@ -232,7 +240,9 @@ a{color:inherit}
 .brands img{max-width:100%}
 @media(max-width:900px){ .brands{grid-template-columns:repeat(4,1fr)} }
 @media(max-width:560px){ .brands{grid-template-columns:repeat(3,1fr)}
-  .brands img{transform:scale(.82)} }
+  .brands img{transform:scale(.82)}
+  /* 16 marks over 3 columns strands one on its own row — span it so it centres */
+  .brands img:last-child:nth-child(3n+1){grid-column:1/-1} }
 
 /* ── theme + forward controls ── */
 .tools{position:fixed;top:12px;right:clamp(10px,1.6vw,26px);z-index:80;display:flex;gap:8px;align-items:flex-start}
@@ -267,13 +277,32 @@ a{color:inherit}
 
 @media(max-width:900px){
   .g3,.g4{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
   .rail{display:none}
   section{min-height:auto;padding-bottom:64px;scroll-snap-align:none}
   .deck{scroll-snap-type:none;height:auto;overflow:visible}
   .ftr{position:static;margin-top:26px;transform:none;width:auto}
   .hint{display:none}
+  /* the wide comparison table scrolls inside its own rail, not the page */
+  .mxw{margin-inline:calc(var(--pad)*-1);padding-inline:var(--pad)}
+  .swipe{display:block}
+  /* Content is full-width single-column here, so a fixed top-right control
+     permanently covers whatever scrolls under it — it was sitting on top of
+     the section headers. Let it scroll away with the page instead. */
+  /* top/right must be cleared — they were offsets for the fixed layout, and
+     under position:relative they would shift the whole bar left and down */
+  .tools{position:relative;top:auto;right:auto;justify-content:flex-end;padding:12px var(--pad) 0}
+  /* anchor the panel to the toolbar, not the button — on a ~320px screen the
+     button sits too far right and a button-anchored panel runs off the edge */
+  .tools-wrap{position:static}
+  .pop{top:calc(100% + 6px);right:var(--pad);width:min(210px,calc(100vw - 2*var(--pad)))}
 }
-@media(max-width:560px){ .g2,.g3,.g4{grid-template-columns:1fr} }
+@media(max-width:560px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  /* nowrap keeps short badges tidy but strands the long ones off-screen here */
+  .badge{white-space:normal}
+  .hdr{gap:8px}
+}
 @media(max-width:420px){ .tbtn{padding:8px 9px;letter-spacing:.14em} }
 @media print{
   .rail,.bar,.hint,.tools,.toast{display:none}
@@ -313,7 +342,7 @@ a{color:inherit}
 <section id="s1" data-name="Vision"><div class="inner">
   <div class="hdr rv-in"><span class="eyebrow red">Brand Partnership · 2026</span>
     <span class="eyebrow">Executive Vision &amp; Cultural Relevance</span></div>
-  <div class="grid" style="grid-template-columns:minmax(280px,1fr) minmax(300px,1.08fr);align-items:center;gap:clamp(20px,3vw,48px)">
+  <div class="grid split" style="--split:minmax(280px,1fr) minmax(300px,1.08fr);align-items:center;gap:clamp(20px,3vw,48px)">
     <div class="rv-in">
       <!-- Vector, traced from the original cover art. The old PNG was a bad crop:
            the "3" was clipped and two black rectangles were baked into the corners. -->
@@ -353,7 +382,7 @@ a{color:inherit}
   <div class="hdr rv-in"><span class="eyebrow red">Audience &amp; Verified Reach</span>
     <span class="eyebrow">Platform analytics</span></div>
   <h2 class="disp rv-in" style="margin-bottom:clamp(20px,3vh,36px)">The numbers <span class="red">behind the room.</span></h2>
-  <div class="grid" style="grid-template-columns:minmax(280px,1fr) minmax(300px,1fr);gap:clamp(18px,2.4vw,38px)">
+  <div class="grid split" style="--split:minmax(280px,1fr) minmax(300px,1fr);gap:clamp(18px,2.4vw,38px)">
     <div class="rv-in">
       <div class="grid g3">
         <div class="card"><div class="stat" data-n="580" data-suf="K">0</div><div class="statl">Monthly uniques</div></div>
@@ -527,6 +556,7 @@ a{color:inherit}
       <tr><td class="k">VIP seats — awards night / brunch <span class="red">†</span></td><td align="center" class="red">20 / 8</td><td align="center" class="red">12 / 6</td><td align="center" class="red">10 / —</td><td align="center" class="red">2 / 6</td><td align="center" class="red">4 / —</td></tr>
       <tr><td class="k">Indicative gross impressions · activation window</td><td align="center" class="red">142M</td><td align="center" class="red">105M</td><td align="center" class="red">62M</td><td align="center" class="red">24M</td><td align="center">Recap &amp; report</td></tr>
     </tbody></table></div>
+  <p class="swipe">Swipe the table to see every tier →</p>
   <p class="xs rv-in" style="margin-top:12px">Tier impressions are a scoped share of the 142M full-program model shown on Reach, and are carried by the <span style="color:var(--bone)">22 August awards night alone</span> — no brunch delivery is assumed in them. Grant naming is a single right, sold once.<br><span class="red">†</span> The FLWRS Brunch is the tentative second day. Brunch lines attach when the brunch is underwritten and activated for this edition; if it does not activate, brunch-specific rights are released and the corresponding fee is not charged.</p>
   <div class="ftr"><span class="eyebrow">Deliverables confirmed in the partnership agreement</span><span class="eyebrow">05</span></div>
 </div></section>
@@ -542,7 +572,7 @@ a{color:inherit}
   <div class="hdr rv-in"><span class="eyebrow red">On the Roadmap · Worldwide Multi-Stream</span>
     <span class="badge off">In development with Volta · not contracted inventory</span></div>
   <h2 class="disp rv-in" style="margin-bottom:clamp(16px,2.4vh,30px)">One night. <span class="red">Every angle, viewer's choice.</span></h2>
-  <div class="grid" style="grid-template-columns:minmax(280px,1.05fr) minmax(280px,.95fr);gap:clamp(18px,2.6vw,40px)">
+  <div class="grid split" style="--split:minmax(280px,1.05fr) minmax(280px,.95fr);gap:clamp(18px,2.6vw,40px)">
     <div class="rv-in">
       <p class="lede" style="max-width:54ch">In partnership with <span style="color:var(--bone)">Volta</span>, we are building toward a live worldwide broadcast where the viewer selects their own feed — main stage, the carpet, the honoree room, the after — rather than watching one cut somebody else chose.</p>
       <div class="grid g2" style="margin-top:clamp(16px,2.2vh,24px)">
@@ -579,7 +609,7 @@ a{color:inherit}
 <!-- 07 -->
 <section id="s6" data-name="Contact"><div class="inner">
   <div class="hdr rv-in"><span class="eyebrow red">The Ask</span><span class="eyebrow">Partnership inquiries</span></div>
-  <div class="grid" style="grid-template-columns:minmax(280px,1.25fr) minmax(280px,.85fr);gap:clamp(20px,3vw,46px);align-items:center">
+  <div class="grid split" style="--split:minmax(280px,1.25fr) minmax(280px,.85fr);gap:clamp(20px,3vw,46px);align-items:center">
     <div class="rv-in">
       <img src="/images/ftc/badge.png" alt="" style="width:72px;margin-bottom:16px;opacity:.95">
       <div class="kick" style="margin-bottom:16px"></div>
