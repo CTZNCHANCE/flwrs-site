@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For The Culture 3 — Brand Partnership</title>
+<meta name="description" content="The world-famous recognition night from Sway &amp; King Tech. 2026 brand partnership prospectus.">
+<meta property="og:title" content="For The Culture 3 — Brand Partnership">
+<meta property="og:description" content="Recognition, in real time. August 30–31, 2026 · Los Angeles.">
+<meta property="og:image" content="/images/ftc/wordmark.png">
+<meta name="theme-color" content="#0A0A0B">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0A0A0B; --ink2:#121214; --panel:#17171A;
+  --red:#E8342A; --red-dk:#B4241C;
+  --bone:#F2F0EB; --dim:#D6D2CA; --mute:#9C978D;
+  --line:rgba(232,52,42,.26); --line2:rgba(242,240,235,.10);
+  --pad:clamp(20px,5vw,88px);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+.deck{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;scrollbar-width:none}
+.deck::-webkit-scrollbar{display:none}
+section{min-height:100dvh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;
+  padding:clamp(58px,9vh,80px) var(--pad) clamp(60px,10vh,92px);display:flex;flex-direction:column;justify-content:center}
+section::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(115% 70% at 82% -10%,rgba(232,52,42,.15),transparent 58%),
+             radial-gradient(80% 55% at -5% 105%,rgba(232,52,42,.07),transparent 62%)}
+/* NB: intentionally not position:relative — .ftr pins to the section, not the content box.
+   z-index still applies here because .inner is a flex item of section. */
+.inner{z-index:2;width:100%;max-width:1500px;margin:0 auto}
+
+/* ── type ── */
+.disp{font-family:'Haettenschweiler','Impact','Arial Narrow',sans-serif;line-height:.9;text-transform:uppercase;font-weight:400}
+h1.disp{font-size:clamp(46px,8.4vw,104px)}
+h2.disp{font-size:clamp(34px,5.4vw,72px)}
+.d4{font-size:clamp(20px,2.3vw,32px)}
+.d5{font-size:clamp(17px,1.6vw,24px)}
+.red{color:var(--red)}
+.eyebrow{font-size:clamp(9px,.78vw,11px);font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.eyebrow.red{color:var(--red)}
+.lab{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.lede{font-size:clamp(15px,1.32vw,20px);line-height:1.55;color:var(--dim);font-weight:300}
+.body{font-size:clamp(13px,1vw,15px);line-height:1.6;color:var(--dim);font-weight:300}
+.sm{font-size:clamp(11.5px,.86vw,13px);line-height:1.55;color:var(--mute);font-weight:300}
+.xs{font-size:10.5px;line-height:1.5;color:var(--mute);font-weight:300}
+.kick{width:56px;height:3px;background:var(--red);margin-bottom:22px}
+
+/* ── chrome ── */
+.hdr{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  padding-bottom:14px;border-bottom:2px solid var(--red);margin-bottom:clamp(22px,4vh,46px)}
+.ftr{position:absolute;left:50%;transform:translateX(-50%);
+  width:min(1500px,calc(100% - 2*var(--pad)));bottom:clamp(20px,3.4vh,40px);display:flex;
+  justify-content:space-between;align-items:baseline;gap:14px;padding-top:12px;border-top:1px solid var(--line2);z-index:2}
+
+/* ── cards ── */
+.card{background:linear-gradient(158deg,var(--panel),var(--ink2));border:1px solid var(--line2);
+  border-radius:3px;padding:clamp(16px,1.5vw,24px);transition:transform .32s cubic-bezier(.2,.7,.3,1),border-color .32s,box-shadow .32s}
+.card.hot{border-top:3px solid var(--red)}
+.card:hover{transform:translateY(-4px);border-color:var(--line);box-shadow:0 16px 46px rgba(0,0,0,.55)}
+.cnum{font-family:'Haettenschweiler','Impact',sans-serif;font-size:clamp(22px,2vw,30px);color:var(--red-dk);line-height:1;margin-bottom:9px}
+.grid{display:grid;gap:clamp(10px,1vw,16px)}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+
+/* ── stats ── */
+.stat{font-family:'Haettenschweiler','Impact',sans-serif;font-size:clamp(30px,4vw,60px);line-height:.88;color:var(--red)}
+.statl{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:8px;font-weight:700}
+.row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--line2)}
+.row:last-child{border-bottom:0}
+.rv{font-family:'Haettenschweiler','Impact',sans-serif;color:var(--red);font-size:clamp(17px,1.5vw,23px)}
+
+/* ── badges / pricing ── */
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red);border:1px solid var(--line);padding:5px 10px;border-radius:2px;white-space:nowrap}
+.badge.on{background:var(--red);color:#fff;border-color:var(--red)}
+.badge.off{color:var(--mute);border-color:var(--line2)}
+.price{font-family:'Haettenschweiler','Impact',sans-serif;font-size:clamp(26px,2.6vw,38px);color:var(--bone);line-height:1}
+.price.red{color:var(--red)}
+.pstd{font-size:11.5px;color:var(--mute);margin-top:5px}
+.tier{cursor:pointer}
+.tier .more{max-height:0;overflow:hidden;opacity:0;transition:max-height .42s ease,opacity .3s ease,margin .42s ease}
+.tier.open .more{max-height:340px;opacity:1;margin-top:13px}
+.tier .tog{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--red);font-weight:700}
+.tier .tog i{font-style:normal;transition:transform .3s}
+.tier.open .tog i{transform:rotate(45deg)}
+
+/* ── matrix ── */
+.mxw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mx{width:100%;border-collapse:collapse;min-width:760px}
+.mx th{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);text-align:left;
+  font-weight:700;padding:0 10px 9px 0;border-bottom:2px solid var(--red)}
+.mx td{font-size:clamp(11px,.88vw,12.5px);color:var(--dim);font-weight:300;padding:7px 10px 7px 0;
+  border-bottom:1px solid var(--line2)}
+.mx td.k{color:var(--bone);font-weight:400}
+.mx tr{transition:background .2s}
+.mx tbody tr:hover{background:rgba(232,52,42,.06)}
+.dot{color:var(--red)}.dot.no{color:#3A3A3E}
+
+/* ── nav rail ── */
+.rail{position:fixed;right:clamp(10px,1.6vw,26px);top:50%;transform:translateY(-50%);z-index:60;
+  display:flex;flex-direction:column;gap:13px}
+.rail a{width:9px;height:9px;border-radius:50%;border:1px solid var(--mute);display:block;position:relative;transition:.28s}
+.rail a.on{background:var(--red);border-color:var(--red);transform:scale(1.32)}
+.rail a span{position:absolute;right:19px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:9px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mute);opacity:0;pointer-events:none;transition:.25s}
+.rail a:hover span{opacity:1}
+.bar{position:fixed;top:0;left:0;height:2px;background:var(--red);z-index:70;width:0;transition:width .12s linear}
+.hint{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;font-size:9px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--mute);opacity:.75;transition:opacity .5s}
+.hint.gone{opacity:0}
+
+/* ── reveal ── */
+.rv-in{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.on .rv-in{opacity:1;transform:none}
+.on .rv-in:nth-child(2){transition-delay:.07s}.on .rv-in:nth-child(3){transition-delay:.14s}
+.on .rv-in:nth-child(4){transition-delay:.21s}.on .rv-in:nth-child(5){transition-delay:.28s}
+.on .rv-in:nth-child(6){transition-delay:.35s}
+
+.cta{display:inline-block;background:var(--red);color:#fff;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;font-size:12px;padding:15px 30px;border-radius:2px;text-decoration:none;transition:.28s}
+.cta:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+.ghost{border:1px solid var(--line);color:var(--red);background:none}
+.ghost:hover{background:var(--red);color:#fff}
+a{color:inherit}
+
+@media(max-width:900px){
+  .g3,.g4{grid-template-columns:1fr 1fr}
+  .rail{display:none}
+  section{min-height:auto;padding-bottom:64px;scroll-snap-align:none}
+  .deck{scroll-snap-type:none;height:auto;overflow:visible}
+  .ftr{position:static;margin-top:26px;transform:none;width:auto}
+  .hint{display:none}
+}
+@media(max-width:560px){ .g2,.g3,.g4{grid-template-columns:1fr} }
+@media print{
+  .rail,.bar,.hint{display:none}
+  section{page-break-after:always;min-height:auto}
+  .rv-in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bar" id="bar"></div>
+<nav class="rail" id="rail"></nav>
+<div class="hint" id="hint">Scroll or press ↓ · press 1–6 to jump</div>
+
+<div class="deck" id="deck">
+
+<!-- 01 -->
+<section id="s1" data-name="Vision"><div class="inner">
+  <div class="hdr rv-in"><span class="eyebrow red">Brand Partnership · 2026</span>
+    <span class="eyebrow">Executive Vision &amp; Cultural Relevance</span></div>
+  <div class="grid" style="grid-template-columns:minmax(280px,1fr) minmax(300px,1.08fr);align-items:center;gap:clamp(20px,3vw,48px)">
+    <div class="rv-in">
+      <img src="/images/ftc/wordmark.png" alt="World Famous For The Culture 3"
+        style="width:100%;max-width:620px;border-radius:3px;filter:drop-shadow(0 16px 46px rgba(0,0,0,.8))">
+      <div class="kick" style="margin-top:26px"></div>
+      <p class="lede">The world-famous recognition night from Sway &amp; King Tech — where the builders
+        of the culture are honored while they can still hear it, and a grant goes home in their name.</p>
+      <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="cta" href="#s4">See the packages</a>
+        <a class="cta ghost" href="mailto:info@sktnetwork.tv?subject=For%20The%20Culture%203%20—%20Partnership">Start a conversation</a>
+      </div>
+    </div>
+    <div class="rv-in">
+      <img src="/images/ftc/collage.png" alt="SKT Network" style="width:100%;border:1px solid var(--line2);border-radius:3px">
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card hot"><div class="cnum">01</div><div class="disp d5" style="margin-bottom:7px">Third edition</div>
+          <p class="sm">Two nights already executed without formal sponsorship. The room assembles itself.</p></div>
+        <div class="card hot"><div class="cnum">02</div><div class="disp d5" style="margin-bottom:7px">Owned network</div>
+          <p class="sm">SKT Network, Sway's Universe, SiriusXM — the platform does not rent its audience.</p></div>
+        <div class="card hot"><div class="cnum">03</div><div class="disp d5" style="margin-bottom:7px">Talent-amplified</div>
+          <p class="sm">Honorees post the grant moment themselves. Your name rides their feed.</p></div>
+        <div class="card hot"><div class="cnum">04</div><div class="disp d5" style="margin-bottom:7px">Recognition, not ads</div>
+          <p class="sm">Partners are remembered inside the ritual rather than advertised on top of it.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="ftr"><span class="eyebrow">SKT Network · Sway's Universe · FLWRS · TWE</span><span class="eyebrow">01</span></div>
+</div></section>
+
+<!-- 02 -->
+<section id="s2" data-name="Reach"><div class="inner">
+  <div class="hdr rv-in"><span class="eyebrow red">Audience &amp; Verified Reach</span>
+    <span class="eyebrow">Platform analytics</span></div>
+  <h2 class="disp rv-in" style="margin-bottom:clamp(20px,3vh,36px)">The numbers <span class="red">behind the room.</span></h2>
+  <div class="grid" style="grid-template-columns:minmax(280px,1fr) minmax(300px,1fr);gap:clamp(18px,2.4vw,38px)">
+    <div class="rv-in">
+      <div class="grid g3">
+        <div class="card"><div class="stat" data-n="580" data-suf="K">0</div><div class="statl">Monthly uniques</div></div>
+        <div class="card"><div class="stat" data-n="1.75" data-suf="M" data-dec="2">0</div><div class="statl">Monthly pageviews</div></div>
+        <div class="card"><div class="stat">1:39</div><div class="statl">Avg session</div></div>
+      </div>
+      <div class="lab" style="margin:22px 0 12px">Social footprint</div>
+      <div class="grid g4">
+        <div class="card" style="padding:15px"><div class="stat" style="font-size:clamp(22px,2.4vw,38px)" data-n="589" data-suf="K">0</div><div class="statl">X</div></div>
+        <div class="card" style="padding:15px"><div class="stat" style="font-size:clamp(22px,2.4vw,38px)" data-n="1.2" data-suf="M" data-dec="1">0</div><div class="statl">Instagram</div></div>
+        <div class="card" style="padding:15px"><div class="stat" style="font-size:clamp(22px,2.4vw,38px)" data-n="1.1" data-suf="M" data-dec="1">0</div><div class="statl">Facebook</div></div>
+        <div class="card" style="padding:15px"><div class="stat" style="font-size:clamp(22px,2.4vw,38px)" data-n="2" data-suf="M">0</div><div class="statl">YouTube</div></div>
+      </div>
+    </div>
+    <div class="rv-in">
+      <div class="lab" style="margin-bottom:11px">Composition</div>
+      <div class="row"><span class="body">Age 18–24</span><span class="rv">12%</span></div>
+      <div class="row"><span class="body">Age 25–34</span><span class="rv">41%</span></div>
+      <div class="row"><span class="body">Age 35–44</span><span class="rv">23%</span></div>
+      <div class="row"><span class="body">Age 45–54</span><span class="rv">24%</span></div>
+      <div class="row"><span class="body">Male / female split</span><span class="rv">74 / 26</span></div>
+      <div class="lab" style="margin:20px 0 11px">Declared interests</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <span class="badge">Urban · Hip-Hop / Rap</span><span class="badge">Celebrities &amp; Ent. News</span>
+        <span class="badge">Movie Lovers</span><span class="badge">Music Lovers</span><span class="badge">Gamers</span>
+      </div>
+      <div class="card" style="margin-top:20px">
+        <div class="lab" style="margin-bottom:10px">The impression model · six-week activation window</div>
+        <div class="row"><span class="sm">SiriusXM Shade 45 · 6 on-air</span><span class="sm red">48M</span></div>
+        <div class="row"><span class="sm">SKT + Sway's owned social · 8 posts</span><span class="sm red">39M</span></div>
+        <div class="row"><span class="sm">VIZIO SmartCast CTV · 2 airings <span class="red">*</span></span><span class="sm red">36M</span></div>
+        <div class="row"><span class="sm">Honoree-owned channels · 2 posts</span><span class="sm red">19M</span></div>
+        <div class="row" style="border-top:1px solid var(--line);border-bottom:0;padding-top:9px"><span class="sm" style="color:var(--bone)">Full-program gross</span><span class="rv" style="font-size:23px">142M</span></div>
+        <p class="xs" style="margin-top:9px">Gross (duplicated) impressions — base audience × placement count. Not unique reach. Tier figures are a scoped share of this model.<br><span class="red">*</span> VIZIO SmartCast carriage confirmed. Walmart Connect retail-media integration in discussion; the model holds without it — excluding this line, full-program gross is 106M.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ftr"><span class="eyebrow">Public-source figures rolled up at deck date</span><span class="eyebrow">02</span></div>
+</div></section>
+
+<!-- 03 -->
+<section id="s3" data-name="Activations"><div class="inner">
+  <div class="hdr rv-in"><span class="eyebrow red">Custom Activation Concepts</span>
+    <span class="eyebrow">Scoped to category · built with your team</span></div>
+  <h2 class="disp rv-in" style="margin-bottom:clamp(20px,3vh,34px)">Not a logo. <span class="red">A role in the ritual.</span></h2>
+  <div class="grid g3 rv-in">
+    <div class="card hot"><div class="cnum">01</div><div class="disp d4" style="margin-bottom:8px">The named grant</div>
+      <p class="sm">Checks delivered in your name, on camera, to a cause the honoree chose. Held by one partner per day — the highest-amplification asset in the program.</p></div>
+    <div class="card hot"><div class="cnum">02</div><div class="disp d4" style="margin-bottom:8px">The roundtable</div>
+      <p class="sm">Underwrite a filmed session on your category's thesis — ownership, wellness, workforce — distributed as its own episode.</p></div>
+    <div class="card hot"><div class="cnum">03</div><div class="disp d4" style="margin-bottom:8px">The legacy film</div>
+      <p class="sm">A documentary short on one honoree's impact story, produced with the SKT team and delivered as a brand-owned asset.</p></div>
+    <div class="card hot"><div class="cnum">04</div><div class="disp d4" style="margin-bottom:8px">The pendant commission</div>
+      <p class="sm">Co-design the 24-karat keepsake. Provenance, maker's mark, and the story of the metal the honoree wears home.</p></div>
+    <div class="card hot"><div class="cnum">05</div><div class="disp d4" style="margin-bottom:8px">Network takeover</div>
+      <p class="sm">Category-exclusive presence across SKT Network programming for the activation window, including the recap special.</p></div>
+    <div class="card hot"><div class="cnum">06</div><div class="disp d4" style="margin-bottom:8px">The named fellowship</div>
+      <p class="sm">Extend the night into a year — a scholarship carrying your name, awarded on stage and reported on at the next edition.</p></div>
+  </div>
+  <div class="rv-in" style="margin-top:clamp(16px,2.4vh,26px)">
+    <div class="lab" style="margin-bottom:11px">Past brand partners across SKT Network programming</div>
+    <div class="card">
+      <div style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline">
+        <span class="disp d5" style="color:var(--dim)">Doritos</span><span class="disp d5" style="color:var(--dim)">McDonald's</span>
+        <span class="disp d5" style="color:var(--dim)">Diageo</span><span class="disp d5" style="color:var(--dim)">A&amp;E</span>
+        <span class="disp d5" style="color:var(--dim)">BET</span><span class="disp d5" style="color:var(--dim)">Cheez-It</span>
+        <span class="disp d5" style="color:var(--dim)">Golden State Warriors</span><span class="disp d5" style="color:var(--dim)">LRG</span>
+        <span class="disp d5" style="color:var(--dim)">TuneCore</span><span class="disp d5" style="color:var(--dim)">Fearless Fund</span>
+        <span class="disp d5" style="color:var(--dim)">9FIVE</span><span class="disp d5" style="color:var(--dim)">Crep Protect</span>
+      </div>
+      <p class="xs" style="margin-top:11px">Named for reference only. Past partnerships across SKT Network programming; no current endorsement implied.</p>
+    </div>
+  </div>
+  <div class="ftr"><span class="eyebrow">Activations finalized in a working session with your team</span><span class="eyebrow">03</span></div>
+</div></section>
+
+<!-- 04 -->
+<section id="s4" data-name="Packages"><div class="inner">
+  <div class="hdr rv-in"><span class="eyebrow red">Tiered Sponsorship Packages</span>
+    <span class="badge on">Founding Rate · through 1 March 2027</span></div>
+  <h2 class="disp rv-in" style="margin-bottom:clamp(18px,2.6vh,32px)">Enter anywhere. <span class="red">Own the category.</span></h2>
+  <div class="grid g4 rv-in">
+    <div class="card hot tier"><span class="badge on">Title</span>
+      <div class="price red" style="margin-top:14px">$300K</div><div class="pstd">Standard 2027 · $500K</div>
+      <p class="sm" style="margin-top:12px">Platform naming. Both days, grant naming across both, year-round media, full category exclusivity.</p>
+      <div class="more"><div class="row"><span class="sm">Grants in your name</span><span class="sm red">All · both days</span></div>
+        <div class="row"><span class="sm">Bespoke films</span><span class="sm red">Two</span></div>
+        <div class="row"><span class="sm">VIP seats</span><span class="sm red">20 / 8</span></div>
+        <div class="row"><span class="sm">Gross impressions</span><span class="sm red">142M</span></div></div>
+      <div class="tog"><i>+</i> Deliverables</div></div>
+    <div class="card tier"><span class="badge">Presenting</span>
+      <div class="price" style="margin-top:14px">$200K</div><div class="pstd">Standard 2027 · $350K</div>
+      <p class="sm" style="margin-top:12px">Presenting billing across the full two-day program, grant naming across both days — subject to availability.</p>
+      <div class="more"><div class="row"><span class="sm">Grants in your name</span><span class="sm red">All · both days</span></div>
+        <div class="row"><span class="sm">Bespoke films</span><span class="sm red">One</span></div>
+        <div class="row"><span class="sm">VIP seats</span><span class="sm red">12 / 6</span></div>
+        <div class="row"><span class="sm">Gross impressions</span><span class="sm red">105M</span></div></div>
+      <div class="tog"><i>+</i> Deliverables</div></div>
+    <div class="card tier"><span class="badge">Event</span>
+      <div class="price" style="margin-top:14px">$125K</div><div class="pstd">Standard 2027 · $200K</div>
+      <p class="sm" style="margin-top:12px">Awards night, presented. Stage billing, Day One grant naming, event-window exclusivity, full recap package.</p>
+      <div class="more"><div class="row"><span class="sm">Grants in your name</span><span class="sm red">Up to 6 · night</span></div>
+        <div class="row"><span class="sm">Exclusivity</span><span class="sm red">Event window</span></div>
+        <div class="row"><span class="sm">VIP seats</span><span class="sm red">10 / —</span></div>
+        <div class="row"><span class="sm">Gross impressions</span><span class="sm red">62M</span></div></div>
+      <div class="tog"><i>+</i> Deliverables</div></div>
+    <div class="card tier"><span class="badge off">Supporting</span>
+      <div class="price" style="margin-top:14px">$15K</div><div class="pstd">Standard 2027 · $25K</div>
+      <p class="sm" style="margin-top:12px">In-room presence, program credit, and inclusion in the recap reel that lives in perpetuity.</p>
+      <div class="more"><div class="row"><span class="sm">Recap reel credit</span><span class="sm red">Perpetuity</span></div>
+        <div class="row"><span class="sm">Wrap report</span><span class="sm red">Included</span></div>
+        <div class="row"><span class="sm">VIP seats</span><span class="sm red">4 / —</span></div></div>
+      <div class="tog"><i>+</i> Deliverables</div></div>
+  </div>
+  <div class="rv-in" style="margin-top:clamp(16px,2.4vh,26px);display:flex;gap:9px;align-items:center;flex-wrap:wrap">
+    <span class="lab" style="margin-right:6px">Also available</span>
+    <span class="badge off">Co-Presenting · $100K</span><span class="badge off">Impact Grant Fund Underwriter · $70K</span>
+    <span class="badge off">Day Two Presenting · $50K</span><span class="badge off">Brunch In-Room · $30K</span>
+    <span class="badge off">Grant Presenter · $24K</span><span class="badge off">Community Table · $5K</span>
+    <span class="badge off">24K Pendant · On request</span>
+  </div>
+  <p class="xs rv-in" style="margin-top:14px;max-width:112ch">Grant naming is a single right, sold once per day. Title and Presenting are mutually exclusive — when either sells the other is withdrawn, and Event and Day Two convert to their non-naming equivalents at the same rate. Co-Presenting is available only while Title and Presenting are unsold — two partners maximum, sharing billing and category protection, with grant naming split one day each.</p>
+  <div class="ftr"><span class="eyebrow">Standard Rate is the published 2027 card, effective 2 March 2027</span><span class="eyebrow">04</span></div>
+</div></section>
+
+<!-- 05 -->
+<section id="s5" data-name="ROI"><div class="inner">
+  <div class="hdr rv-in"><span class="eyebrow red">Expected Brand ROI &amp; Deliverables</span>
+    <span class="eyebrow">What lands, by tier</span></div>
+  <h2 class="disp rv-in" style="margin-bottom:clamp(16px,2.4vh,28px)">Every line, <span class="red">contracted.</span></h2>
+  <div class="mxw rv-in"><table class="mx">
+    <thead><tr><th style="width:31%">Deliverable</th>
+      <th style="text-align:center">Title<br><span style="color:var(--mute)">$300K</span></th>
+      <th style="text-align:center">Presenting<br><span style="color:var(--mute)">$200K</span></th>
+      <th style="text-align:center">Event<br><span style="color:var(--mute)">$125K</span></th>
+      <th style="text-align:center">Day Two<br><span style="color:var(--mute)">$50K</span></th>
+      <th style="text-align:center">Supporting<br><span style="color:var(--mute)">$15K</span></th></tr></thead>
+    <tbody>
+      <tr><td class="k">Platform &amp; event naming rights</td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td></tr>
+      <tr><td class="k">Awards-night stage billing &amp; on-camera presentation</td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td></tr>
+      <tr><td class="k">Day Two brunch presence &amp; roundtable credit</td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot no">○</span></td></tr>
+      <tr><td class="k">Grants carrying the brand's name</td><td align="center" class="red">All · both days</td><td align="center" class="red">All · both days</td><td align="center" class="red">Up to 6 · night</td><td align="center" class="red">Up to 4 · brunch</td><td align="center">—</td></tr>
+      <tr><td class="k">Category exclusivity</td><td align="center" class="red">Full year</td><td align="center" class="red">Full year</td><td align="center" class="red">Event window</td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td></tr>
+      <tr><td class="k">Bespoke content segment or legacy film</td><td align="center" class="red">Two</td><td align="center" class="red">One</td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td></tr>
+      <tr><td class="k">Year-round media inclusion across SKT Network</td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td><td align="center"><span class="dot no">○</span></td></tr>
+      <tr><td class="k">Honoree-led social amplification</td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot no">○</span></td></tr>
+      <tr><td class="k">Recap reel credit, in perpetuity</td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td></tr>
+      <tr><td class="k">Post-event reach &amp; sentiment wrap report</td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td><td align="center"><span class="dot">●</span></td></tr>
+      <tr><td class="k">VIP seats — awards night / brunch</td><td align="center" class="red">20 / 8</td><td align="center" class="red">12 / 6</td><td align="center" class="red">10 / —</td><td align="center" class="red">2 / 6</td><td align="center" class="red">4 / —</td></tr>
+      <tr><td class="k">Indicative gross impressions · activation window</td><td align="center" class="red">142M</td><td align="center" class="red">105M</td><td align="center" class="red">62M</td><td align="center" class="red">24M</td><td align="center">Recap &amp; report</td></tr>
+    </tbody></table></div>
+  <p class="xs rv-in" style="margin-top:12px">Tier impressions are a scoped share of the 142M full-program model shown on Reach. Grant naming is a single right per day, sold once.</p>
+  <div class="ftr"><span class="eyebrow">Deliverables confirmed in the partnership agreement</span><span class="eyebrow">05</span></div>
+</div></section>
+
+<!-- 06 -->
+<section id="s6" data-name="Contact"><div class="inner">
+  <div class="hdr rv-in"><span class="eyebrow red">The Ask</span><span class="eyebrow">Partnership inquiries</span></div>
+  <div class="grid" style="grid-template-columns:minmax(280px,1.25fr) minmax(280px,.85fr);gap:clamp(20px,3vw,46px);align-items:center">
+    <div class="rv-in">
+      <img src="/images/ftc/badge.png" alt="" style="width:78px;margin-bottom:24px;opacity:.95">
+      <div class="kick"></div>
+      <h1 class="disp" style="margin-bottom:24px">Be the reason<br>somebody got their<br><span class="red">flowers on time.</span></h1>
+      <p class="lede" style="max-width:46ch">Bring us your category thesis and we will build the activation around it — then hold your exclusivity while your legal and comms teams complete review.</p>
+      <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="cta" href="mailto:info@sktnetwork.tv?subject=For%20The%20Culture%203%20—%20Partnership%20Inquiry">Email the team</a>
+        <a class="cta ghost" href="tel:+18184810066">818 481 0066</a>
+      </div>
+    </div>
+    <div class="rv-in">
+      <div class="card hot">
+        <div class="lab" style="margin-bottom:15px">Contact</div>
+        <div class="disp d4" style="margin-bottom:13px">SKT Network</div>
+        <div style="height:1px;background:var(--line2);margin-bottom:15px"></div>
+        <div class="body" style="line-height:2;color:var(--bone);font-size:16px">
+          <a href="mailto:info@sktnetwork.tv" style="text-decoration:none">info@sktnetwork.tv</a><br>
+          <a href="tel:+18184810066" style="text-decoration:none">818&nbsp;481&nbsp;0066</a></div>
+      </div>
+      <div style="margin-top:20px">
+        <div class="lab" style="margin-bottom:10px">The calendar</div>
+        <div class="row"><span class="body">Awards night</span><span class="sm">30 August 2026</span></div>
+        <div class="row"><span class="body">The FLWRS Brunch</span><span class="sm">31 August 2026</span></div>
+        <div class="row"><span class="body">Founding Rate closes</span><span class="sm red">1 March 2027</span></div>
+      </div>
+      <img src="/images/ftc/talent.png" alt="" style="width:100%;margin-top:20px;border-radius:3px;opacity:.92">
+    </div>
+  </div>
+  <div class="ftr"><span class="eyebrow">SKT Network · Sway's Universe · FLWRS · O.N.E The Duo · TWE</span><span class="eyebrow">06</span></div>
+</div></section>
+
+</div>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck'),secs=[].slice.call(document.querySelectorAll('section')),
+      rail=document.getElementById('rail'),bar=document.getElementById('bar'),hint=document.getElementById('hint');
+
+  secs.forEach(function(s,i){
+    var a=document.createElement('a'); a.href='#'+s.id;
+    a.innerHTML='<span>'+(s.dataset.name||'')+'</span>'; rail.appendChild(a);
+  });
+  var dots=[].slice.call(rail.children);
+
+  // reveal + active dot
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('on');
+        var i=secs.indexOf(e.target);
+        dots.forEach(function(d,j){d.classList.toggle('on',j===i)});
+        countUp(e.target);
+      }
+    });
+  },{threshold:.4});
+  secs.forEach(function(s){io.observe(s)});
+
+  // animated counters
+  function countUp(scope){
+    [].slice.call(scope.querySelectorAll('.stat[data-n]')).forEach(function(el){
+      if(el.dataset.done)return; el.dataset.done=1;
+      var target=parseFloat(el.dataset.n),dec=parseInt(el.dataset.dec||0),suf=el.dataset.suf||'',
+          t0=null,dur=1150;
+      function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1),
+        e=1-Math.pow(1-p,3), v=target*e;
+        el.textContent=(dec?v.toFixed(dec):Math.round(v))+suf;
+        if(p<1)requestAnimationFrame(step);}
+      requestAnimationFrame(step);
+    });
+  }
+
+  // progress bar
+  function prog(){
+    var st=deck.scrollTop||window.scrollY,
+        h=(deck.scrollHeight-deck.clientHeight)||(document.body.scrollHeight-innerHeight);
+    bar.style.width=Math.min(100,(st/(h||1))*100)+'%';
+    if(st>60)hint.classList.add('gone');
+  }
+  deck.addEventListener('scroll',prog,{passive:true});
+  window.addEventListener('scroll',prog,{passive:true}); prog();
+
+  // keyboard nav
+  function idx(){var best=0,bd=1e9;secs.forEach(function(s,i){
+    var d=Math.abs(s.getBoundingClientRect().top);if(d<bd){bd=d;best=i}});return best}
+  function go(i){i=Math.max(0,Math.min(secs.length-1,i));secs[i].scrollIntoView({behavior:'smooth'})}
+  addEventListener('keydown',function(e){
+    if(/^[1-6]$/.test(e.key)){go(+e.key-1);e.preventDefault();return}
+    switch(e.key){
+      case 'ArrowDown':case 'PageDown':case ' ':go(idx()+1);e.preventDefault();break;
+      case 'ArrowUp':case 'PageUp':go(idx()-1);e.preventDefault();break;
+      case 'Home':go(0);e.preventDefault();break;
+      case 'End':go(secs.length-1);e.preventDefault();break;
+    }
+  });
+
+  // tier expand
+  [].slice.call(document.querySelectorAll('.tier')).forEach(function(t){
+    t.addEventListener('click',function(){t.classList.toggle('open')});
+  });
+})();
+</script>
+</body>
+</html>
