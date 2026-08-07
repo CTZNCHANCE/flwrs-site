@@ -12,7 +12,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0A0A0B">
+<meta name="theme-color" content="#F4F2ED">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 /* ══ COLOUR THEMES ══════════════════════════════════════════════
@@ -21,20 +21,31 @@
    Theme control, persisted to localStorage, and encoded into the URL
    by Forward (?theme=…) so a recipient opens on the sender's palette.
    --bone is "primary text", not literally bone — in `paper` it is near-black. */
-:root{                                    /* Street Red · FTC house identity */
+/* Paper is the default, so it lives on bare :root — that way the page paints
+   light even before the theme script runs, with no flash of the dark palette. */
+:root{                                    /* Paper · daylight, the house default */
+  --ink:#F4F2ED; --ink2:#E9E6DF; --panel:#FFFFFF;
+  --accent:#B01F16; --accent-dk:#7C150F; --accent-rgb:176,31,22;
+  --bone:#0E0D0A; --dim:#26231D; --mute:#4B4539;
+  --line:rgba(176,31,22,.34); --line2:rgba(14,13,10,.16);
+  --on-accent:#fff; --dot-off:#AFA89A;
+  --card-shadow:0 12px 30px rgba(60,52,38,.14);
+  --img-shadow:0 12px 30px rgba(60,52,38,.22);
+  --pad:clamp(20px,5vw,88px);
+}
+:root[data-theme="street"]{               /* Street Red · FTC house identity */
   --ink:#0A0A0B; --ink2:#121214; --panel:#17171A;
   --accent:#E8342A; --accent-dk:#B4241C; --accent-rgb:232,52,42;
-  --bone:#F2F0EB; --dim:#D6D2CA; --mute:#9C978D;
+  --bone:#F2F0EB; --dim:#D6D2CA; --mute:#B0AAA0;
   --line:rgba(232,52,42,.26); --line2:rgba(242,240,235,.10);
   --on-accent:#fff; --dot-off:#3A3A3E;
   --card-shadow:0 16px 46px rgba(0,0,0,.55);
   --img-shadow:0 16px 46px rgba(0,0,0,.8);
-  --pad:clamp(20px,5vw,88px);
 }
 :root[data-theme="gold"]{                 /* Bone & Gold · dark-luxury register */
   --ink:#0B0A08; --ink2:#131108; --panel:#1A1710;
   --accent:#C9A227; --accent-dk:#8C6E15; --accent-rgb:201,162,39;
-  --bone:#F5F2E9; --dim:#DED8C7; --mute:#9C947E;
+  --bone:#F5F2E9; --dim:#DED8C7; --mute:#B2A992;
   --line:rgba(201,162,39,.30); --line2:rgba(245,242,233,.10);
   --on-accent:#12100A; --dot-off:#3C3628;
   --card-shadow:0 16px 46px rgba(0,0,0,.6);
@@ -42,14 +53,14 @@
 :root[data-theme="ink"]{                  /* Editorial Ink · institutional / Heat Map A */
   --ink:#070A0F; --ink2:#0D1219; --panel:#131A23;
   --accent:#4E9CCB; --accent-dk:#2F6C93; --accent-rgb:78,156,203;
-  --bone:#EDF2F7; --dim:#C7D2DE; --mute:#8492A1;
+  --bone:#EDF2F7; --dim:#C7D2DE; --mute:#9AA7B5;
   --line:rgba(78,156,203,.30); --line2:rgba(237,242,247,.10);
   --on-accent:#05111B; --dot-off:#2A3542;
 }
 :root[data-theme="violet"]{               /* Violet Hour · premium, cross-generational */
   --ink:#09060F; --ink2:#110C1A; --panel:#181125;
   --accent:#9B6BF2; --accent-dk:#6941B8; --accent-rgb:155,107,242;
-  --bone:#F3F0F9; --dim:#D5CDE5; --mute:#998FAD;
+  --bone:#F3F0F9; --dim:#D5CDE5; --mute:#ADA3C0;
   --line:rgba(155,107,242,.30); --line2:rgba(243,240,249,.10);
   --on-accent:#0B0714; --dot-off:#332943;
   --card-shadow:0 16px 46px rgba(0,0,0,.6);
@@ -66,11 +77,6 @@
 /* Light ground needs more than inverted tokens: 300-weight type that reads fine
    as light-on-dark goes thin and grey as dark-on-light at the same ratio. Bump
    the body weights and firm up the hairline rules so Paper stays legible. */
-:root[data-theme="paper"] .lede,
-:root[data-theme="paper"] .body,
-:root[data-theme="paper"] .sm,
-:root[data-theme="paper"] .xs,
-:root[data-theme="paper"] .mx td{font-weight:400}
 :root[data-theme="paper"] .pstd,
 :root[data-theme="paper"] .statl,
 :root[data-theme="paper"] .eyebrow{color:var(--mute)}
@@ -105,13 +111,15 @@ h2.disp{font-size:clamp(34px,5.4vw,72px)}
 .d4{font-size:clamp(20px,2.3vw,32px)}
 .d5{font-size:clamp(17px,1.6vw,24px)}
 .red{color:var(--red)}
-.eyebrow{font-size:clamp(9px,.78vw,11px);font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+/* Body copy runs at 400, not 300: at these sizes the light weight was the
+   readability problem, on light and dark ground alike. */
+.eyebrow{font-size:clamp(10px,.82vw,11.5px);font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
 .eyebrow.red{color:var(--red)}
-.lab{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
-.lede{font-size:clamp(15px,1.32vw,20px);line-height:1.55;color:var(--dim);font-weight:300}
-.body{font-size:clamp(13px,1vw,15px);line-height:1.6;color:var(--dim);font-weight:300}
-.sm{font-size:clamp(11.5px,.86vw,13px);line-height:1.55;color:var(--mute);font-weight:300}
-.xs{font-size:10.5px;line-height:1.5;color:var(--mute);font-weight:300}
+.lab{font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+.lede{font-size:clamp(15.5px,1.34vw,20px);line-height:1.58;color:var(--dim);font-weight:400}
+.body{font-size:clamp(13.5px,1.02vw,15.5px);line-height:1.62;color:var(--dim);font-weight:400}
+.sm{font-size:clamp(12.5px,.94vw,14px);line-height:1.62;color:var(--mute);font-weight:400}
+.xs{font-size:11.5px;line-height:1.58;color:var(--mute);font-weight:400}
 .kick{width:56px;height:3px;background:var(--red);margin-bottom:22px}
 
 /* ── chrome ── */
@@ -132,23 +140,23 @@ h2.disp{font-size:clamp(34px,5.4vw,72px)}
 
 /* ── stats ── */
 .stat{font-family:'Haettenschweiler','Impact',sans-serif;font-size:clamp(30px,4vw,60px);line-height:.88;color:var(--red)}
-.statl{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:8px;font-weight:700}
+.statl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:8px;font-weight:700}
 .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--line2)}
 .row:last-child{border-bottom:0}
 .rv{font-family:'Haettenschweiler','Impact',sans-serif;color:var(--red);font-size:clamp(17px,1.5vw,23px)}
 
 /* ── badges / pricing ── */
-.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:var(--red);border:1px solid var(--line);padding:5px 10px;border-radius:2px;white-space:nowrap}
 .badge.on{background:var(--red);color:var(--on-accent);border-color:var(--red)}
 .badge.off{color:var(--mute);border-color:var(--line2)}
 .price{font-family:'Haettenschweiler','Impact',sans-serif;font-size:clamp(26px,2.6vw,38px);color:var(--bone);line-height:1}
 .price.red{color:var(--red)}
-.pstd{font-size:11.5px;color:var(--mute);margin-top:5px}
+.pstd{font-size:12.5px;color:var(--mute);margin-top:5px}
 .tier{cursor:pointer}
 .tier .more{max-height:0;overflow:hidden;opacity:0;transition:max-height .42s ease,opacity .3s ease,margin .42s ease}
 .tier.open .more{max-height:340px;opacity:1;margin-top:13px}
-.tier .tog{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:10px;letter-spacing:.18em;
+.tier .tog{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--red);font-weight:700}
 .tier .tog i{font-style:normal;transition:transform .3s}
 .tier.open .tog i{transform:rotate(45deg)}
@@ -156,9 +164,9 @@ h2.disp{font-size:clamp(34px,5.4vw,72px)}
 /* ── matrix ── */
 .mxw{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .mx{width:100%;border-collapse:collapse;min-width:760px}
-.mx th{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);text-align:left;
+.mx th{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);text-align:left;
   font-weight:700;padding:0 10px 9px 0;border-bottom:2px solid var(--red)}
-.mx td{font-size:clamp(11px,.88vw,12.5px);color:var(--dim);font-weight:300;padding:7px 10px 7px 0;
+.mx td{font-size:clamp(12px,.92vw,13.5px);color:var(--dim);font-weight:400;padding:7px 10px 7px 0;
   border-bottom:1px solid var(--line2)}
 .mx td.k{color:var(--bone);font-weight:400}
 .mx tr{transition:background .2s}
@@ -174,7 +182,7 @@ h2.disp{font-size:clamp(34px,5.4vw,72px)}
   letter-spacing:.18em;text-transform:uppercase;color:var(--mute);opacity:0;pointer-events:none;transition:.25s}
 .rail a:hover span{opacity:1}
 .bar{position:fixed;top:0;left:0;height:2px;background:var(--red);z-index:70;width:0;transition:width .12s linear}
-.hint{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;font-size:9px;letter-spacing:.22em;
+.hint{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;font-size:10px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--mute);opacity:.75;transition:opacity .5s}
 .hint.gone{opacity:0}
 
@@ -192,9 +200,43 @@ h2.disp{font-size:clamp(34px,5.4vw,72px)}
 .ghost:hover{background:var(--red);color:var(--on-accent)}
 a{color:inherit}
 
+/* ── brand cutouts ── */
+/* Grid, not wrapping flex: 16 marks in a flex row broke 13 + 3. A fixed column
+   count spaces them evenly across the plate in two balanced rows. */
+.brands{display:grid;grid-template-columns:repeat(8,1fr);align-items:center;justify-items:center;
+  gap:clamp(16px,2vw,26px) clamp(10px,1.4vw,20px);background:#F7F6F3;border-radius:3px;
+  padding:clamp(16px,2vw,26px) clamp(12px,2vw,26px)}
+/* Balanced by equal optical AREA, not equal height. These marks run from a long
+   wordmark (tuneCORE, 5.6:1) to a tall badge (Warriors, 0.85:1); matching their
+   heights shrinks the tall ones to nothing, so each height is set from its own
+   aspect ratio to occupy roughly the same area. */
+.brands img{width:auto;object-fit:contain;display:block;flex:0 0 auto;
+  opacity:.92;transition:opacity .25s,transform .25s}
+.brands img:hover{opacity:1;transform:translateY(-2px)}
+.brands img[src$="tunecore.png"]{height:19px}
+.brands img[src$="diageo.png"]{height:21px}
+.brands img[src$="lrg.png"]{height:24px}
+.brands img[src$="9five.png"]{height:30px}
+.brands img[src$="cheez-it.png"]{height:31px}
+.brands img[src$="ae.png"]{height:33px}
+.brands img[src$="fearless-fund.png"]{height:34px}
+.brands img[src$="doritos.png"]{height:35px}
+.brands img[src$="op.png"]{height:37px}
+.brands img[src$="landr.png"]{height:41px}
+.brands img[src$="crep-protect.png"]{height:42px}
+.brands img[src$="bet.png"]{height:45px}
+.brands img[src$="mcdonalds.png"]{height:45px}
+.brands img[src$="gym.png"]{height:46px}
+.brands img[src$="new-wave-soda.png"]{height:47px}
+.brands img[src$="warriors.png"]{height:49px}
+.brands img{max-width:100%}
+@media(max-width:900px){ .brands{grid-template-columns:repeat(4,1fr)} }
+@media(max-width:560px){ .brands{grid-template-columns:repeat(3,1fr)}
+  .brands img{transform:scale(.82)} }
+
 /* ── theme + forward controls ── */
 .tools{position:fixed;top:12px;right:clamp(10px,1.6vw,26px);z-index:80;display:flex;gap:8px;align-items:flex-start}
-.tbtn{font:700 9.5px/1 'Avenir Next','Helvetica Neue',Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;
+.tbtn{font:700 10px/1 'Avenir Next','Helvetica Neue',Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;
   color:var(--mute);background:var(--panel);background:color-mix(in srgb,var(--panel) 86%,transparent);border:1px solid var(--line2);
   border-radius:2px;padding:9px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
   transition:color .25s,border-color .25s,background .25s}
@@ -377,11 +419,28 @@ a{color:inherit}
   <div class="rv-in" style="margin-top:clamp(16px,2.4vh,26px)">
     <div class="lab" style="margin-bottom:11px">Past brand partners across SKT Network programming</div>
     <div class="card">
-      <!-- Marks sit on their own light plate so the wall reads as a credentials
-           sheet in every palette, rather than inverting with the theme. -->
-      <img src="/images/ftc/brandwall.png" alt="Brands SKT Network has worked with: Cheez-It, LRG, A&amp;E, BET, Doritos, LANDR, TuneCore, Fearless Fund, New Wave Soda, GYM, McDonald's, Golden State Warriors, 9FIVE, Crep Protect, Diageo"
-        style="width:100%;max-width:760px;margin:0 auto;display:block;background:#fff;border-radius:2px;padding:8px">
-      <p class="xs" style="margin-top:11px">Shown for reference only. Past partnerships across SKT Network programming; no current endorsement implied.</p>
+      <!-- Each mark is its own transparent cutout, laid out across the plate.
+           The plate stays light in every palette because several of these marks
+           are dark-on-white and would vanish on the dark grounds. -->
+      <div class="brands">
+        <img src="/images/ftc/brands/cheez-it.png" alt="Cheez-It">
+        <img src="/images/ftc/brands/lrg.png" alt="LRG">
+        <img src="/images/ftc/brands/ae.png" alt="A&amp;E">
+        <img src="/images/ftc/brands/bet.png" alt="BET">
+        <img src="/images/ftc/brands/doritos.png" alt="Doritos">
+        <img src="/images/ftc/brands/mcdonalds.png" alt="McDonald's">
+        <img src="/images/ftc/brands/diageo.png" alt="Diageo">
+        <img src="/images/ftc/brands/warriors.png" alt="Golden State Warriors">
+        <img src="/images/ftc/brands/tunecore.png" alt="TuneCore">
+        <img src="/images/ftc/brands/fearless-fund.png" alt="Fearless Fund">
+        <img src="/images/ftc/brands/landr.png" alt="LANDR">
+        <img src="/images/ftc/brands/new-wave-soda.png" alt="New Wave Soda">
+        <img src="/images/ftc/brands/gym.png" alt="GYM">
+        <img src="/images/ftc/brands/9five.png" alt="9FIVE">
+        <img src="/images/ftc/brands/crep-protect.png" alt="Crep Protect">
+        <img src="/images/ftc/brands/op.png" alt="OP">
+      </div>
+      <p class="xs" style="margin-top:13px">Shown for reference only. Past partnerships across SKT Network programming; no current endorsement implied.</p>
     </div>
   </div>
   <div class="ftr"><span class="eyebrow">Activations finalized in a working session with your team</span><span class="eyebrow">03</span></div>
@@ -633,13 +692,13 @@ a{color:inherit}
      choice, then the house palette. The URL wins so that a forwarded
      link always opens on the palette the sender picked. */
   var THEMES=[
+    {id:'paper', name:'Daylight',     note:'Default',        sw:['#F4F2ED','#B01F16']},
     {id:'street',name:'Street Red',   note:'House identity', sw:['#0A0A0B','#E8342A']},
     {id:'gold',  name:'Bone & Gold',  note:'Dark luxury',    sw:['#0B0A08','#C9A227']},
     {id:'ink',   name:'Editorial Ink',note:'Institutional',  sw:['#070A0F','#4E9CCB']},
-    {id:'violet',name:'Violet Hour',  note:'Premium',        sw:['#09060F','#9B6BF2']},
-    {id:'paper', name:'Paper',        note:'Light · print',  sw:['#F4F2ED','#BF261C']}
+    {id:'violet',name:'Violet Hour',  note:'Premium',        sw:['#09060F','#9B6BF2']}
   ];
-  var DEFAULT='street', current=DEFAULT,
+  var DEFAULT='paper', current=DEFAULT,
       themeBtn=document.getElementById('themeBtn'), pop=document.getElementById('pop'),
       swWrap=document.getElementById('swatches'), fwdBtn=document.getElementById('fwdBtn'),
       emailLink=document.getElementById('emailLink'), toast=document.getElementById('toast');
